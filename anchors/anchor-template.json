@@ -1,0 +1,28 @@
+{
+  "id": "anchor_XXX",
+  "title": "剧本名称",
+  "market_result": "爆款|中等|扑街",
+  "market_data": {
+    "播放量": "",
+    "充值": "",
+    "上线日期": "",
+    "平台": ""
+  },
+  "score_range": [80, 85],
+  "script_path": "anchors/scripts/xxx.docx",
+  "expert_scores": {
+    "structure": null,
+    "emotion": null,
+    "market": null,
+    "total": null
+  },
+  "critic_scores": {
+    "structure": null,
+    "emotion": null,
+    "market": null,
+    "total": null
+  },
+  "calibration_status": "待校准",
+  "deviation": null,
+  "notes": "关键特征描述"
+}
