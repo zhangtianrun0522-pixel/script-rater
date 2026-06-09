@@ -67,10 +67,31 @@ if [ -n "$TOTAL" ] && [ -n "$RATING" ]; then
   fi
 fi
 
+# 高分二次验证警报
+if [ -n "$TOTAL" ] && [ "$TOTAL" -ge 85 ]; then
+  echo "⚠️  高分警报: 总分 $TOTAL ≥ 85（市场前5%），请确认毒舌评审已完成"
+  ERRORS=$((ERRORS + 1))
+fi
+
+if [ -n "$STRUCTURE" ] && [ "$STRUCTURE" -ge 36 ]; then
+  echo "⚠️  高分警报: 结构分 $STRUCTURE/40 ≥ 90%，请确认有铁证支撑"
+  ERRORS=$((ERRORS + 1))
+fi
+
+if [ -n "$EMOTION" ] && [ "$EMOTION" -ge 32 ]; then
+  echo "⚠️  高分警报: 情绪分 $EMOTION/35 ≥ 91%，请确认有铁证支撑"
+  ERRORS=$((ERRORS + 1))
+fi
+
+if [ -n "$MARKET" ] && [ "$MARKET" -ge 23 ]; then
+  echo "⚠️  高分警报: 市场分 $MARKET/25 ≥ 92%，请确认有铁证支撑"
+  ERRORS=$((ERRORS + 1))
+fi
+
 if [ "$ERRORS" -eq 0 ]; then
   echo "✅ 评分验证通过"
   exit 0
 else
-  echo "❌ 发现 $ERRORS 个错误"
+  echo "❌ 发现 $ERRORS 个问题（含高分警报）"
   exit 1
 fi
